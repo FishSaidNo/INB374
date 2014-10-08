@@ -26,23 +26,9 @@
 		</div>
 	
 		<div id="content">
-			<h1>Please Login</h1>
+			<h1>Hello</h1>
 				
-			<form class="pure-form pure-form-stacked" action="LoginCheck.jsp" method="post">
-				<fieldset>
-
-					<label for="username">User Name</label>
-					<center><input name="username" type="text" placeholder="User Name" required></center>
-
-					<label for="password">Password</label>
-					<center><input name="password" type="password" placeholder="Password" required></center>
-
-					<button type="submit" class="pure-button pure-button-primary">Sign in</button>
-				</fieldset>
-			</form>	
-			
-			<br>
-			<h3>Alternatively, <a href="Register.jsp">click here</a> to create an account</h3>
+			<h3>Content goes here...</h3>
 				
 		</div>	
 		

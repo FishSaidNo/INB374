@@ -21,21 +21,21 @@ body {
 	padding-bottom: 50px;
 }
 #header-left{
-	font: 24pt 'Veranda', 'Goudy Old Style', sans-serif;
+	font: bold 24pt 'Veranda', 'Goudy Old Style', sans-serif;
     color: #00A300;
 	text-align: center;
     width: 30%;
     float: left;
 }
 #header-right {
-	font: 24pt 'Veranda', 'Goudy Old Style', sans-serif;
+	font: bold 24pt 'Veranda', 'Goudy Old Style', sans-serif;
 	color: #00A300;
     text-align: center;
 	width: 30%;
     float: right;
 }
 #header-middle {
-	font: 24pt 'Veranda', 'Goudy Old Style', sans-serif;
+	font: bold 24pt 'Veranda', 'Goudy Old Style', sans-serif;
     color: #00A300;
 	text-align: center;
     width: 40%;
@@ -47,7 +47,7 @@ body {
 }
 #content {
 	padding-top: 10px;
-	background: #F0F0F0 url(../images/gradient.jpg) repeat-x bottom;
+	background: #F0F0F0;
     height: calc(100vh - 126px);
 	font: 18pt 'Veranda', 'Goudy Old Style', sans-serif;
 	text-align: center;

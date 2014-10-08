@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2014 at 06:20 AM
+-- Generation Time: Oct 08, 2014 at 06:29 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -35,39 +35,18 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `Address` varchar(256) NOT NULL,
   `email` varchar(128) NOT NULL,
   `phone` varchar(12) NOT NULL,
-  `insuranceType` int(1) NOT NULL
+  `insuranceCover` int(3) NOT NULL DEFAULT '0' COMMENT 'As a percentage (0-100)'
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customerID`, `Name`, `Address`, `email`, `phone`, `insuranceType`) VALUES
-(1, 'Bob Jones', '48 Accent Ct, Sydney, 4002', 'bob@gmail.com', '0411112266', 1),
-(2, 'Amy Adams', '99 Coolac Pl, Petrie, 4502', 'amy123@yahoo.com', '0411445599', 2),
-(3, 'Jerry Smith', '123 Anzac Rd, Griffith, 4560', 'supercoolemail@microsoft.com', '0788889996', 3),
-(4, 'Jacob Creek', 'Unit 5, 188 Creek St, No where, 6455', 'j_son321@gmail.com', '0458976377', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `insurance`
---
-
-DROP TABLE IF EXISTS `insurance`;
-CREATE TABLE IF NOT EXISTS `insurance` (
-  `insuranceID` int(6) NOT NULL,
-  `description` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `insurance`
---
-
-INSERT INTO `insurance` (`insuranceID`, `description`) VALUES
-(1, 'None'),
-(2, 'Partial'),
-(3, 'Full');
+INSERT INTO `customers` (`customerID`, `Name`, `Address`, `email`, `phone`, `insuranceCover`) VALUES
+(1, 'Bob Jones', '48 Accent Ct, Sydney, 4002', 'bob@gmail.com', '0411112266', 0),
+(2, 'Amy Adams', '99 Coolac Pl, Petrie, 4502', 'amy123@yahoo.com', '0411445599', 100),
+(3, 'Jerry Smith', '123 Anzac Rd, Griffith, 4560', 'supercoolemail@microsoft.com', '0788889996', 35),
+(4, 'Jacob Creek', 'Unit 5, 188 Creek St, No where, 6455', 'j_son321@gmail.com', '0458976377', 0);
 
 -- --------------------------------------------------------
 
@@ -197,13 +176,7 @@ INSERT INTO `worktypes` (`workID`, `name`, `description`, `price`, `partsNeeded`
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
- ADD PRIMARY KEY (`customerID`), ADD KEY `insuranceType` (`insuranceType`);
-
---
--- Indexes for table `insurance`
---
-ALTER TABLE `insurance`
- ADD PRIMARY KEY (`insuranceID`);
+ ADD PRIMARY KEY (`customerID`), ADD KEY `insuranceType` (`insuranceCover`);
 
 --
 -- Indexes for table `jobs`
@@ -261,12 +234,6 @@ MODIFY `workID` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `customers`
---
-ALTER TABLE `customers`
-ADD CONSTRAINT `insurace_fk_constraint` FOREIGN KEY (`insuranceType`) REFERENCES `insurance` (`insuranceID`);
 
 --
 -- Constraints for table `jobs`

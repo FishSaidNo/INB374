@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2014 at 06:29 AM
+-- Generation Time: Oct 23, 2014 at 06:59 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -31,8 +31,8 @@ USE `servicing_our_autos`;
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE IF NOT EXISTS `customers` (
 `customerID` int(6) NOT NULL,
-  `Name` varchar(128) NOT NULL,
-  `Address` varchar(256) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `address` varchar(256) NOT NULL,
   `email` varchar(128) NOT NULL,
   `phone` varchar(12) NOT NULL,
   `insuranceCover` int(3) NOT NULL DEFAULT '0' COMMENT 'As a percentage (0-100)'
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customerID`, `Name`, `Address`, `email`, `phone`, `insuranceCover`) VALUES
+INSERT INTO `customers` (`customerID`, `name`, `address`, `email`, `phone`, `insuranceCover`) VALUES
 (1, 'Bob Jones', '48 Accent Ct, Sydney, 4002', 'bob@gmail.com', '0411112266', 0),
 (2, 'Amy Adams', '99 Coolac Pl, Petrie, 4502', 'amy123@yahoo.com', '0411445599', 100),
 (3, 'Jerry Smith', '123 Anzac Rd, Griffith, 4560', 'supercoolemail@microsoft.com', '0788889996', 35),

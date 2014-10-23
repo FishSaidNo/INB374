@@ -44,6 +44,7 @@ body {
 	border-left: 5px dotted black;
 	border-right: 5px dotted black;
 	padding: 1px;
+	
 }
 #content {
 	padding-top: 10px;
@@ -51,4 +52,34 @@ body {
     height: calc(100vh - 126px);
 	font: 18pt 'Veranda', 'Goudy Old Style', sans-serif;
 	text-align: center;
+}
+#content-left {
+	float: left;
+	padding-left: 325px;
+	padding-top: 150px;
+}
+#content-right {
+	float: right;
+	padding-right: 325px;
+	padding-top: 150px;
+}
+
+.button-main {
+	width: 325px;
+	height: 180px;
+	background: rgb(66, 184, 221);
+	font: 125% 'Veranda', 'Goudy Old Style', sans-serif;
+	color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+a:link {
+    color: #0033FF;
+}
+a:visited {
+    color: #0033FF;
+}
+a:hover {
+    color: #FF0000;
 }

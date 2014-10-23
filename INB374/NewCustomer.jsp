@@ -3,10 +3,11 @@
 
 <html>
     <head profile="http://www.w3.org/2005/10/profile">
-		<title>Servicing Our Autos</title>
+		<title>New Customer - Servicing Our Autos</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<link rel="icon" type="image/jpg" href="images/logo.jpg">
 		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     </head>
 	
     <body>
@@ -20,25 +21,13 @@
 				<p>Logged in as: <i>Ben</i></p>
 			</div>
 			<div id="header-middle">
-				<p>Home</p>
+				<p><a href="index.jsp">Home</a> > New Customer</p>
 			</div>			
 		</div>
 	
 		<div id="content">
-			<br>
-			<h2>Please select an option below</h2>
-			
-			<div id="content-left">
-				<form action="NewCustomer.jsp">
-					<input type="submit" value="Create a new customer" class="button-main">
-				</form>			
-			</div>
-
-			<div id="content-right">
-				<form action="NewWorkOrder.jsp">
-					<input type="submit" value="New work order" class="button-main">
-				</form>				
-			</div>			
+			<h1>Hello</h1>
+					
 				
 		</div>	
 		

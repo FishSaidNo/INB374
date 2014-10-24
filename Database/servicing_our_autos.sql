@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2014 at 04:34 AM
+-- Generation Time: Oct 24, 2014 at 07:59 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
 `vehicleID` int(6) NOT NULL,
   `make` varchar(128) NOT NULL,
   `model` varchar(128) NOT NULL,
-  `year` year(4) NOT NULL
+  `year` varchar(4) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
@@ -127,21 +127,21 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
 --
 
 INSERT INTO `vehicles` (`vehicleID`, `make`, `model`, `year`) VALUES
-(1, 'Toyota', '86', 2012),
-(2, 'Toyota', 'Camry', 1996),
-(3, 'Holden', 'Commodore', 2002),
-(4, 'Mazda', '323', 1986),
-(5, 'Mazda', '6', 2009),
-(6, 'Mazda', 'Tribute', 2002),
-(7, 'Mazda', 'Tribute', 2003),
-(8, 'Mazda', 'Tribute', 2008),
-(9, 'Subaru', 'WRX', 2001),
-(10, 'Subaru', 'WRX', 2002),
-(11, 'Subaru', 'Liberty', 1993),
-(12, 'Honda', 'Accord', 2000),
-(13, 'Nissan', 'Pathfinder', 1999),
-(14, 'Toyota', 'Landcruiser', 1986),
-(15, 'Toyota', 'Landcruiser', 2005);
+(1, 'Toyota', '86', '2012'),
+(2, 'Toyota', 'Camry', '1996'),
+(3, 'Holden', 'Commodore', '2002'),
+(4, 'Mazda', '323', '1986'),
+(5, 'Mazda', '6', '2009'),
+(6, 'Mazda', 'Tribute', '2002'),
+(7, 'Mazda', 'Tribute', '2003'),
+(8, 'Mazda', 'Tribute', '2008'),
+(9, 'Subaru', 'WRX', '2001'),
+(10, 'Subaru', 'WRX', '2002'),
+(11, 'Subaru', 'Liberty', '1993'),
+(12, 'Honda', 'Accord', '2000'),
+(13, 'Nissan', 'Pathfinder', '1999'),
+(14, 'Toyota', 'Landcruiser', '1986'),
+(15, 'Toyota', 'Landcruiser', '2005');
 
 -- --------------------------------------------------------
 
@@ -163,11 +163,11 @@ CREATE TABLE IF NOT EXISTS `worktypes` (
 --
 
 INSERT INTO `worktypes` (`workID`, `name`, `description`, `price`, `partsNeeded`) VALUES
-(1, 'Minor Service', 'Oil change, Brake Pads, General Driveline Inspection, Air/Fuel Filter Change', 288, '11,18,19'),
-(2, 'Major Service', 'Minor Service + Engine Mounts, Steering Rack Boots, LCA Bushings, Wheel Alignment', 674.4, '11,18,19,9,10,12'),
-(3, 'Rear End Collision Repair', 'Inclues driveline inspection, does not include paint', 1890, '2,4,5,22'),
-(4, 'Replace CV Boots', NULL, 144, '21'),
-(5, 'Replace Windscreen', 'Privacy glass used only if included from factory', 120, '7'),
+(1, 'Minor Service', 'Oil change, Brake Pads, General Driveline Inspection, Air/Fuel Filter Change', 288, '''11'',''18'',''19'''),
+(2, 'Major Service', 'Minor Service + Engine Mounts, Steering Rack Boots, LCA Bushings, Wheel Alignment', 674.4, '''11'',''18'',''19'',''9'',''10'',''12'''),
+(3, 'Rear End Collision Repair', 'Inclues driveline inspection, does not include paint', 1890, '''2'',''4'',''5'',''22'''),
+(4, 'Replace CV Boots', NULL, 144, '''21'''),
+(5, 'Replace Windscreen', 'Privacy glass used only if included from factory', 120, '''7'''),
 (6, 'Wheel Alignment', '4 Wheel Alignment + Tyre Rotate & Balance', 80, NULL);
 
 --

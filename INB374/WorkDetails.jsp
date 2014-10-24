@@ -48,11 +48,11 @@
 			
 			%>			
 			
-			<form class="pure-form pure-form-aligned" action="xxxxxxxxxxxxxxxxxxxxxxxx" method="post">
+			<form class="pure-form pure-form-aligned" action="Quote.jsp" method="post">
 				<fieldset>
 					<div class="pure-control-group">
 						<label for="vehicle">Vehicle</label>
-						<select id="vehicle" name="vehicle">
+						<select id="vehicle" name="vehicle" required>
 							<option></option>
 							<%
 							ResultSet rs = st.executeQuery("SELECT * FROM vehicles;");
@@ -70,7 +70,7 @@
 					
 					<div class="pure-control-group">
 						<label for="workType">Work Type</label>
-						<select id="workType" name="workType">
+						<select id="workType" name="workType" required>
 							<option></option>
 								<%
 								ResultSet rs2 = st.executeQuery("SELECT * FROM worktypes;");

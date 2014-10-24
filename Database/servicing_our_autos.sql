@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2014 at 06:59 AM
+-- Generation Time: Oct 24, 2014 at 04:34 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `email` varchar(128) NOT NULL,
   `phone` varchar(12) NOT NULL,
   `insuranceCover` int(3) NOT NULL DEFAULT '0' COMMENT 'As a percentage (0-100)'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `customers`
@@ -75,36 +75,38 @@ DROP TABLE IF EXISTS `parts`;
 CREATE TABLE IF NOT EXISTS `parts` (
 `partID` int(6) NOT NULL,
   `name` varchar(128) NOT NULL,
-  `price` double NOT NULL
+  `price` double NOT NULL,
+  `instock` tinyint(1) NOT NULL DEFAULT '1',
+  `waittime` varchar(2) NOT NULL DEFAULT '0' COMMENT 'in days'
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `parts`
 --
 
-INSERT INTO `parts` (`partID`, `name`, `price`) VALUES
-(1, 'RH Front Door', 155),
-(2, 'RH Rear Door', 120),
-(3, 'LH Front Door', 155),
-(4, 'LH Rear Door', 120),
-(5, 'Rear Bumper', 182.55),
-(6, 'Front Bumper', 202),
-(7, 'Windscreen', 342),
-(8, 'Bootlid', 240.8),
-(9, 'Engine Mount Set', 198),
-(10, 'Lower Control Arm Bushings', 89.7),
-(11, 'Brake Pad Set', 400),
-(12, 'Steering Rack Boots', 35),
-(13, 'Steering Rack', 865),
-(14, 'Throwout Bearing Kit', 94),
-(15, 'Water Pump', 321),
-(16, 'Head Gasket Kit', 246),
-(17, 'Intake Manifold', 260.99),
-(18, 'Air Filter', 39.45),
-(19, 'Fuel Filter', 66.82),
-(20, 'MAP Sensor', 77.6),
-(21, 'CV Boot Kit', 135),
-(22, 'Muffler', 195);
+INSERT INTO `parts` (`partID`, `name`, `price`, `instock`, `waittime`) VALUES
+(1, 'RH Front Door', 155, 1, '2'),
+(2, 'RH Rear Door', 120, 1, '2'),
+(3, 'LH Front Door', 155, 1, '4'),
+(4, 'LH Rear Door', 120, 1, '1'),
+(5, 'Rear Bumper', 182.55, 1, '6'),
+(6, 'Front Bumper', 202, 1, '2'),
+(7, 'Windscreen', 342, 0, '2'),
+(8, 'Bootlid', 240.8, 1, '10'),
+(9, 'Engine Mount Set', 198, 1, '4'),
+(10, 'Lower Control Arm Bushings', 89.7, 1, '3'),
+(11, 'Brake Pad Set', 400, 1, '1'),
+(12, 'Steering Rack Boots', 35, 0, '4'),
+(13, 'Steering Rack', 865, 1, '6'),
+(14, 'Throwout Bearing Kit', 94, 1, '6'),
+(15, 'Water Pump', 321, 1, '9'),
+(16, 'Head Gasket Kit', 246, 1, '16'),
+(17, 'Intake Manifold', 260.99, 1, '4'),
+(18, 'Air Filter', 39.45, 1, '5'),
+(19, 'Fuel Filter', 66.82, 1, '1'),
+(20, 'MAP Sensor', 77.6, 1, '9'),
+(21, 'CV Boot Kit', 135, 1, '3'),
+(22, 'Muffler', 195, 1, '2');
 
 -- --------------------------------------------------------
 
@@ -210,7 +212,7 @@ ALTER TABLE `worktypes`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-MODIFY `customerID` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `customerID` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `jobs`
 --

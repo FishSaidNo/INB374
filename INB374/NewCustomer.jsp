@@ -81,7 +81,8 @@
 						<label for="tel">Contact Number</label>
 						<input name="tel" id="tel" type="number" placeholder="Phone #" min="0" max="9999999999" required>
 					</div>
-
+					
+					<div class="pure-controls">
 						<button type="submit" class="pure-button pure-button-primary">Submit</button>
 					</div>
 				</fieldset>

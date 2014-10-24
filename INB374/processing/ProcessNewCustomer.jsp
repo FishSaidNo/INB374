@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
+<%@ page import="java.util.Random" %>
 <!DOCTYPE html>
 
 <html>
@@ -17,7 +18,10 @@
 		String cAddress = request.getParameter("address");
 		String cEmail = request.getParameter("email");
 		String cPhone = (String) (request.getParameter("tel"));	
-		Integer insurancePercentage = 10;
+		Integer insurancePercentage = 0;
+		
+		Random rand = new Random();
+		insurancePercentage = rand.nextInt(100);
 	
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		java.sql.Connection conn;

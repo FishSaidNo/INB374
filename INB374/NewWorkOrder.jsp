@@ -31,7 +31,7 @@
 				<p>Servicing Our Autos</p>
 			</div>
 			<div id="header-right">
-				<p>Logged in as: <i>Ben</i></p>
+				<p>Logged in as: <i>Ben</i> (Sales)</p>
 			</div>
 			<div id="header-middle">
 				<p><a href="index.jsp">Home</a> > New Work Order</p>
@@ -84,6 +84,7 @@
 				cusAddress = rs2.getString(3);
 				cusEmail = rs2.getString(4);
 				cusTel = rs2.getString(5);
+				session.setAttribute("ipercentage", rs2.getString(6));
 			}
 			rs2.close();
 			st.close();

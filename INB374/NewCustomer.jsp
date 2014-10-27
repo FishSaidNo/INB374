@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/mystyle.css">
 		<link rel="stylesheet" type="text/css" href="css/message.css">
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+		<script src="scripts/jquery-2.1.1.min.js"></script>
     </head>
 	
     <body>
@@ -21,7 +22,6 @@
 		catch (Exception e) { success = 0; }		
 		
 		if (success == 1) {
-			out.println("<script src='scripts/jquery-2.1.1.min.js'></script>");
 			out.println("<script type='text/javascript'>");
 				out.println("$(document).ready(function() {");
 					out.println("$('#message').fadeIn('slow');");
@@ -41,7 +41,7 @@
 				<p>Servicing Our Autos</p>
 			</div>
 			<div id="header-right">
-				<p>Logged in as: <i>Ben</i></p>
+				<p>Logged in as: <i>Ben</i> (Sales)</p>
 			</div>
 			<div id="header-middle">
 				<p><a href="index.jsp">Home</a> > New Customer</p>

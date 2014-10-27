@@ -21,7 +21,7 @@
 				<p>Servicing Our Autos</p>
 			</div>
 			<div id="header-right">
-				<p>Logged in as: <i>Ben</i></p>
+				<p>Logged in as: <i>Ben</i> (Sales)</p>
 			</div>
 			<div id="header-middle">
 				<p><a href="index.jsp">Home</a> > Customer > Work Details</p>

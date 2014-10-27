@@ -2,6 +2,8 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@page import="java.io.*" %>
+<%@page import="java.net.*" %>
 <!DOCTYPE html>
 
 <html>
@@ -35,7 +37,7 @@
 				<p>Servicing Our Autos</p>
 			</div>
 			<div id="header-right">
-				<p>Logged in as: <i>Ben</i></p>
+				<p>Logged in as: <i>Ben</i> (Sales)</p>
 			</div>
 			<div id="header-middle">
 				<p><a href="index.jsp">Home</a> > ... > Quote</p>
@@ -51,7 +53,7 @@
 			</div>
 			
 			<div id="loaded">
-				<h2>Ta-da!</h2>
+				<h2>Payment breakdown for selected work:</h2>
 				
 				<%
 					Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -72,17 +74,58 @@
 					}
 					rs.close();
 					
+					
 					if (partsNeeded != "" || partsNeeded != null) {
 						ResultSet rs2 = st.executeQuery("SELECT name, price FROM parts WHERE partID IN ("+partsNeeded+");");
+						out.println("<p><b>Parts Needed:</b></p>");
 						while (rs2.next()) {
-							out.println(rs2.getString(1)+"<br>");
+							out.println("<p>"+rs2.getString(1)+" ($"+rs2.getString(2)+")</p>");
 							partsPrice += rs2.getDouble(2);
 						}
-						
+						rs2.close();
 					}
+					out.println("<br><p><b>Parts Total:</b> $"+partsPrice+"</p>");
+					out.println("<p><b>Labour / Consumables:</b> $"+laborPrice+"</p><br>");
+					
+					Double totalPrice = partsPrice+laborPrice;
+					out.println("<p><b>Total Cost:</b> $"+totalPrice+"</p>");
+					out.println("<h3>After contacting the insurance dept. the total amount payable by the customer is:</h3>");
+					
+					
+					
+					String insuraceModifier = session.getAttribute("ipercentage").toString();
+					String serviceURL = "http://inb374-001-site1.smarterasp.net/RESTService/Calculator/Insurance?cost="+totalPrice.toString()+"&cover="+insuraceModifier;
+					
+					String recv = "";
+					String recvbuff = "";
+					URL ourservice = new URL(serviceURL);
+					URLConnection urlcon = ourservice.openConnection();
+					BufferedReader buffread = new BufferedReader(new InputStreamReader(urlcon.getInputStream()));
+
+					while ((recv = buffread.readLine()) != null) {
+						recvbuff += recv;
+					}
+					buffread.close();
+					
+					
+					
+					String priceToPay = recvbuff;					
+					out.println("<h3 style='color:red'>$"+priceToPay+"</h3>");
+
+					st.close();
+					conn.close();
+					session.setAttribute("parts", partsNeeded);
 				%>
 				
-			</div>
+				<form action="CheckStock.jsp">
+					<input type="submit" value="Accept Quote" class="button-small">
+				</form>			
+
+				<form action="index.jsp?decline=1" method="post">
+					<input type="submit" value="Decline Quote" class="button-small">
+				</form>									
+				
+			</div>		
 				
 		</div>	
 		

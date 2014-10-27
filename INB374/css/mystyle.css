@@ -49,9 +49,11 @@ body {
 #content {
 	padding-top: 10px;
 	background: #F0F0F0;
-    height: calc(100vh - 126px);
+    min-height: calc(100vh - 126px);
 	font: 18pt 'Veranda', 'Goudy Old Style', sans-serif;
 	text-align: center;
+	overflow: auto;
+	width: 100%;
 }
 #content-left {
 	float: left;
@@ -63,6 +65,18 @@ body {
 	padding-right: 325px;
 	padding-top: 150px;
 }
+a:link {
+    color: #0033FF;
+}
+a:visited {
+    color: #0033FF;
+}
+a:hover {
+    color: #FF0000;
+}
+a:active {
+    color: #FF0000;
+}
 
 .button-main {
 	width: 325px;
@@ -73,13 +87,12 @@ body {
     border-radius: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-
-a:link {
-    color: #0033FF;
-}
-a:visited {
-    color: #0033FF;
-}
-a:hover {
-    color: #FF0000;
+.button-small {
+	width: 300px;
+	height: 60px;
+	background: rgb(66, 184, 221);
+	font: 100% 'Veranda', 'Goudy Old Style', sans-serif;
+	color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }

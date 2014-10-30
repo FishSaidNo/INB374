@@ -60,7 +60,7 @@
 				conn.close();				
 			%>
 			
-			<form action="xxxxxxxxxxxxxxxxxx.jsp">
+			<form action="Booked.jsp">
 				<input type="submit" value="Confirm & Finalise Booking" class="button-small">
 			</form>			
 

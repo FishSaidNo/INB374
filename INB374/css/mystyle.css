@@ -57,13 +57,21 @@ body {
 }
 #content-left {
 	float: left;
-	padding-left: 325px;
-	padding-top: 150px;
+	padding-left: 200px;
+	padding-top: 100px;
 }
 #content-right {
 	float: right;
-	padding-right: 325px;
-	padding-top: 150px;
+	padding-right: 200px;
+	padding-top: 100px;
+}
+#footer {
+	float: bottom;
+	position:absolute; 
+	bottom:0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99vw;
 }
 a:link {
     color: #0033FF;

@@ -68,7 +68,12 @@
 				<form action="NewWorkOrder.jsp">
 					<input type="submit" value="New work order" class="button-main">
 				</form>				
-			</div>			
+			</div>	
+			
+			<div id="footer">
+				<p style="font-size:32pt;"><b><a href="PastBookings.jsp">Click here to view past bookings</a></b></p>
+				<p>Morgan Mackay-Payne & Christopher Greathead - INB374</p>
+			</div>
 				
 		</div>	
 		

@@ -62,6 +62,7 @@
 				
 			<br>
 			<h2>The garage will call to confirm this booking in 5 seconds...</h2>
+			<p>(Insure pop-up isn't blocked)</p>
 			<br>
 			
 			<form action="index.jsp">

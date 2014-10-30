@@ -2,6 +2,7 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.io.*" %>
 <!DOCTYPE html>
 
 <html>
@@ -38,24 +39,32 @@
 				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/servicing_our_autos?user=client001&password=inb374");
 				Statement st = conn.createStatement();					
 				
-				String partsNeeded = session.getAttribute("parts").toString();
-				
-				if (partsNeeded != "" || partsNeeded != null) {
-				
-					ResultSet rs = st.executeQuery("SELECT name, waittime FROM parts WHERE instock = '0' AND partID IN ("+partsNeeded+");");
-					if (rs.next()) {
-						out.println("<p>The warehouse reports that following part(s) are not in stock, "+
-							"and the supplier has provided an estimate for their availability:</p><br>");
-						do {
-							out.println("<p><b>"+rs.getString(1)+"</b> (Wait time of "+rs.getString(2)+" days)</p>");
-						} while (rs.next());
-					}
-					else {
-						out.println("<p>The warehouse reports that all necessary parts are in stock!</p>");
-					}
-					rs.close();
+				String partsNeeded = "";
+				try {
+					partsNeeded = session.getAttribute("parts").toString();
 					
+					if (partsNeeded != "" || partsNeeded != null) {
+					
+						ResultSet rs = st.executeQuery("SELECT name, waittime FROM parts WHERE instock = '0' AND partID IN ("+partsNeeded+");");
+						if (rs.next()) {
+							out.println("<p>The warehouse reports that following part(s) are not in stock, "+
+								"and the supplier has provided an estimate for their availability:</p><br>");
+							do {
+								out.println("<p><b>"+rs.getString(1)+"</b> (Wait time of "+rs.getString(2)+" days)</p>");
+							} while (rs.next());
+						}
+						else { partsNeeded = ""; }	
+						rs.close();		
+					}
+					else { partsNeeded = ""; }
 				}
+				catch (Exception e){
+					partsNeeded = "";
+				}
+				finally {
+					out.println("<p>The warehouse reports that all necessary parts are in stock!</p>");
+				}
+					
 				st.close();
 				conn.close();				
 			%>
